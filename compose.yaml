@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: productos_db
+      MYSQL_USER: app
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Configura MYSQL_PASSWORD en .env}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - datos_productos:/var/lib/mysql
+      - ./Database/productos.sql:/docker-entrypoint-initdb.d/productos.sql:ro
+
+volumes:
+  datos_productos:

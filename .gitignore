@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+.DS_Store
+appsettings.Development.json
+
+.env
+.env.*
+!.env.example
